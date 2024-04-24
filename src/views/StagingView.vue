@@ -8,6 +8,7 @@ onMounted(() => {
 })
 
 function importExcelHandler(e: any) {
+  console.log(e)
   // FileReader 对象就是专门处理二进制数据的，主要用于将文件内容读入内容
   const fileReader = new FileReader()
 

@@ -1,12 +1,48 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
+import axios from 'axios'
+import { read, utils } from 'xlsx'
 
 const router = useRouter()
 const time = ref(0)
 
 onMounted(() => {
   window.addEventListener('resize', windowSize)
+
+  axios.get('/src/assets/数据语料平台.xlsx', {
+    responseType: 'blob',
+  }).then((response) => {
+    const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
+    const file = new File([blob], 'example.xlsx', { type: blob.type })
+
+    const fileReader = new FileReader()
+    fileReader.onload = (ev: any) => {
+      try {
+        const data = ev.target.result
+        const workbook = read(data, {
+          type: 'binary',
+        })
+
+        const allWorksheetsData = workbook.SheetNames.map((sheetName) => {
+          const ws = utils.sheet_to_json(workbook.Sheets[sheetName])
+          return ws
+        })
+        console.log(allWorksheetsData)
+        // 取第一张表
+        // console.log(workbook.SheetNames)
+        // const wsname = workbook.SheetNames[1]
+        // // 生成json表格内容
+        // const ws = utils.sheet_to_json(workbook.Sheets[wsname])
+        // console.log(ws)
+        // 后续数据的处理
+      }
+      catch (e) {
+        return false
+      }
+    }
+    fileReader.readAsBinaryString(file)
+  })
 })
 
 function windowSize() {
@@ -19,7 +55,7 @@ function windowSize() {
     <dv-full-screen-container :key="time">
       <div class="titleBox">
         <div class="headerTime">
-          实时数据123
+          2
         </div>
       </div>
       <div class="content">
@@ -29,7 +65,7 @@ function windowSize() {
               <img src="@/assets/leftTop.png" alt="">
             </div>
             <div class="footer">
-              2
+              <RouterView />
             </div>
           </div>
           <div class="leftBox contentBox">
