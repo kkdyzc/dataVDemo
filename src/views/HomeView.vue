@@ -162,6 +162,10 @@ function windowSize() {
               height: 100%;
             }
           }
+          .footer{
+            padding-top: 20px;
+            height: 90%;
+          }
         }
 
       }
