@@ -1,0 +1,46 @@
+{
+  "name": "admin-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
+  },
+  "dependencies": {
+    "@kjgl77/datav-vue3": "^1.7.2",
+    "axios": "^1.4.0",
+    "element-plus": "^2.3.9",
+    "pinia": "^2.1.6",
+    "sass": "^1.66.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "@element-plus/icons-vue": "^2.1.0",
+    "@tsconfig/node18": "^18.2.0",
+    "@types/node": "^18.17.5",
+    "@vitejs/plugin-vue": "^4.3.1",
+    "@vue/tsconfig": "^0.4.0",
+    "eslint": "^8.47.0",
+    "lint-staged": "^14.0.0",
+    "npm-run-all": "^4.1.5",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "~5.1.6",
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.9",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^1.8.8"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
