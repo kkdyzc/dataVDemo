@@ -92,7 +92,7 @@ function windowSize() {
           <div class="middleBox contentBox">
             <div class="header" />
             <div class="footer">
-              2
+              <middleBom />
             </div>
           </div>
         </div>
@@ -130,7 +130,6 @@ function windowSize() {
   :deep(#dv-full-screen-container) {
     //box-sizing: border-box;
     //height: 100%;
-    border: 1px solid red;
     display: flex;
     flex-direction:column;
     background:url("@/assets/BG3.png") no-repeat;
@@ -173,13 +172,20 @@ function windowSize() {
       }
       .middle{
         width: 50%;
-        border: 1px solid red;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        .middleBox:nth-child(1){
+          height: 80%;
 
+        }
+        .middleBox:nth-child(2){
+          flex: 1;
+          border: 1px red solid;
+        }
       }
       .right{
         width: 25%;
-        border: 1px solid red;
         height: 100%;
 
       }
