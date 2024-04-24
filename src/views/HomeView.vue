@@ -31,6 +31,7 @@ onMounted(() => {
           return ws
         })
         userStore.contentList = allWorksheetsData
+        console.log(allWorksheetsData)
         // 取第一张表
         // console.log(workbook.SheetNames)
         // const wsname = workbook.SheetNames[1]
@@ -99,7 +100,7 @@ function windowSize() {
               <img src="@/assets/rightTop.png" alt="">
             </div>
             <div class="footer">
-              2
+              <rightTop />
             </div>
           </div>
           <div class="rightBox contentBox">
@@ -107,7 +108,7 @@ function windowSize() {
               <img src="@/assets/rightBon.png" alt="">
             </div>
             <div class="footer">
-              2
+              <rightBom />
             </div>
           </div>
         </div>
