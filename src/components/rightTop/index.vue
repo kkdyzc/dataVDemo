@@ -1,20 +1,14 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import * as echarts from 'echarts'
 
+const appRef = ref()
 onMounted(() => {
   init()
 })
-
 function init() {
-  const chartDom = document.getElementById('app')
-  const myChart = echarts.init(chartDom)
-  let option: any
-
-  option = {
-    title: {
-      text: 'Stacked Area Chart',
-    },
+  const myChart = echarts.init(appRef.value)
+  myChart.setOption({
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -106,13 +100,12 @@ function init() {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
       },
     ],
-  }
-  option && myChart.setOption(option)
+  })
 }
 </script>
 
 <template>
-  <div id="app" class="app">
+  <div ref="appRef" class="app" style="width: 100%;height: 100%;border: 1px red solid">
     123313
   </div>
 </template>
