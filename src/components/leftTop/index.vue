@@ -51,7 +51,7 @@ watch(() => userStore.contentList, () => {
 
 <style scoped lang="scss">
 .dataCont {
-  padding: 16px 10px;
+  padding: 32px 20px;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -65,7 +65,7 @@ watch(() => userStore.contentList, () => {
           display: none;
         }
         .info-name {
-          font-size: 14px;
+          font-size: 28px;
           .title {
             display: flex;
             align-items: center;
@@ -73,14 +73,14 @@ watch(() => userStore.contentList, () => {
           }
         }
         .ranking-value {
-          font-size: 14px;
+          font-size: 28px;
           display: none;
         }
       }
       .ranking-column {
         height: 40%;
         border: 1px solid #A6CFFF80;
-        padding: 5px;
+        padding: 10px;
         box-sizing: border-box;
         .inside-column {
           height: 100%;

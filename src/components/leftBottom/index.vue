@@ -22,7 +22,7 @@ const config = ref<Config>({
   data: [],
   unit: 'T',
   rowNum: 5,
-  waitTime: 200000,
+  waitTime: 2000,
   valueFormatter(val: any) {
     val.percent = val.percentage
   },
@@ -46,13 +46,13 @@ watch(() => userStore.contentList, () => {
 
 <template>
   <div class="dataCont">
-    <dv-scroll-ranking-board :config="config" style="width:100%;height:100%" />
+    <dv-scroll-ranking-board :config="config" />
   </div>
 </template>
 
 <style scoped lang="scss">
 .dataCont {
-  padding: 16px 10px;
+  padding: 32px 20px;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -60,21 +60,24 @@ watch(() => userStore.contentList, () => {
   background-size: 100% 100%;
 
   :deep(.dv-scroll-ranking-board) {
+    width:100%;
+    height:100%;
     .row-item {
       position: relative;
       flex-direction: row;
       align-items: center;
-      padding-right: 10%;
+      padding-right: 100px;
       .ranking-info {
-        width: 10%;
-        max-width: 10%;
-        min-width: 10%;
+        width: 100px;
+        max-width: 100px;
+        min-width: 100px;
         white-space: nowrap;
         .rank {
           display: none;
         }
         .info-name {
           width: 100%;
+          font-size: 24px;
           .title {
             display: flex;
             align-items: center;
@@ -92,13 +95,13 @@ watch(() => userStore.contentList, () => {
               position: absolute;
               top: 50%;
               right: 50%;
-              transform: translate(12px, -50%);
+              transform: translate(20px, -50%);
               z-index: 10;
             }
           }
         }
         .ranking-value {
-          font-size: 14px;
+          font-size: 28px;
           display: none;
         }
       }
@@ -118,7 +121,7 @@ watch(() => userStore.contentList, () => {
           background: #E6F7FF80;
         }
         .inside-column {
-          margin: 0 8px;
+          margin: 0 16px;
           height: 100%;
           background: linear-gradient(90deg, #00A3FF 1.42%, #75FBFD 100%);
           .shine {

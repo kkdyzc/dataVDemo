@@ -122,7 +122,7 @@ function windowSize() {
 <style scoped lang="scss">
 .main {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   background: #000;
@@ -136,6 +136,7 @@ function windowSize() {
     background-size: 100%;
     .titleBox{
       height: 7%;
+      min-height: 7%;
       background: url('@/assets/headerBg.png') no-repeat;
       background-size: 100%;
       .headerTime{
@@ -144,7 +145,7 @@ function windowSize() {
     }
     .content{
       width: 100%;
-      height: 100%;
+      height: 93%;
       padding:24px;
       display: flex;
       .left,.right{
