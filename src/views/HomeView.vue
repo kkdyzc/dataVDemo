@@ -3,7 +3,9 @@ import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { read, utils } from 'xlsx'
+import { useuserStore } from '@/stores/user'
 
+const userStore = useuserStore()
 const router = useRouter()
 const time = ref(0)
 
@@ -28,7 +30,7 @@ onMounted(() => {
           const ws = utils.sheet_to_json(workbook.Sheets[sheetName])
           return ws
         })
-        console.log(allWorksheetsData)
+        userStore.contentList = allWorksheetsData
         // 取第一张表
         // console.log(workbook.SheetNames)
         // const wsname = workbook.SheetNames[1]
