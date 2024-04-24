@@ -12,6 +12,9 @@ import DataVVue3 from '@kjgl77/datav-vue3'
 import router from './router'
 import globalComponent from '@/components/SvgIcon/index'
 import './assets/fonts/fonts.css'
+import '@unocss/reset/tailwind.css'
+
+import 'unocss'
 
 import App from '@/App.vue'
 
