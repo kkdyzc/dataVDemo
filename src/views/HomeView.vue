@@ -48,6 +48,12 @@ onMounted(() => {
   })
 })
 
+function getTime() {
+  // setInterval(() => {
+  //   console.log('我操')
+  // }, 1000)
+}
+
 function windowSize() {
   time.value = Date.now()
 }
@@ -58,7 +64,8 @@ function windowSize() {
     <dv-full-screen-container :key="time">
       <div class="titleBox">
         <div class="headerTime">
-          2
+          <svg-icon name="timeIcon" width="24px" height="24px" />
+          {{ getTime() }}
         </div>
       </div>
       <div class="content">
@@ -82,13 +89,14 @@ function windowSize() {
         </div>
         <div class="middle ">
           <div class="middleBox contentBox">
-            <div class="header" />
             <div class="footer">
               2
             </div>
           </div>
           <div class="middleBox contentBox">
-            <div class="header" />
+            <div class="header">
+              <img src="@/assets/contentBon.png" alt="">
+            </div>
             <div class="footer">
               <middleBom />
             </div>
@@ -180,6 +188,13 @@ function windowSize() {
         .middleBox:nth-child(2){
           flex: 1;
           border: 1px red solid;
+          .header{
+            height: 22%;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
         }
       }
       .right{

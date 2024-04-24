@@ -99,17 +99,18 @@ function init() {
             colorStops: [
               {
                 offset: 0,
-                color: 'rgba(1, 180, 255, 0.5)',
+                color: 'rgba(34, 118, 252, 0.4)',
               },
               {
                 offset: 1,
-                color: 'rgba(1, 180, 255, 0.2)',
+                color: 'rgba(34, 118, 252, 0.2)',
               },
             ],
           },
         },
         lineStyle: {
           width: 2,
+          color: '#00A3FF',
         },
         data: data1.value,
       },
@@ -138,6 +139,7 @@ function init() {
         },
         lineStyle: {
           width: 2,
+          color: '#00F0FF',
         },
         data: data2.value,
       },
@@ -147,7 +149,7 @@ function init() {
 </script>
 
 <template>
-  <div ref="appRef" class="app" style="width: 100%;height: 100%;" />
+  <div ref="appRef" class="app" style="width: 100%;height: 100%;background: linear-gradient(180deg, rgba(166, 207, 255, 0) 0%, rgba(166, 207, 255, 0.2) 100%);" />
 </template>
 
 <style scoped lang="scss">

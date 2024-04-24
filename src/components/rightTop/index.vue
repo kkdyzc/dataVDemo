@@ -242,7 +242,10 @@ function init() {
 </script>
 
 <template>
-  <div ref="appRef" class="app" style="width: 100%;height: 100%;" />
+  <div
+    ref="appRef" class="app" style="width: 100%;height: 100%;background: linear-gradient(90deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0) 100%);
+"
+  />
 </template>
 
 <style scoped lang="scss">
