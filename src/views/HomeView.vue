@@ -4,6 +4,8 @@ import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { read, utils } from 'xlsx'
 import { useuserStore } from '@/stores/user'
+import LeftTop from '@/components/leftTop/index.vue'
+import LeftBottom from '@/components/leftBottom/index.vue'
 
 const userStore = useuserStore()
 const router = useRouter()
@@ -75,7 +77,7 @@ function windowSize() {
               <img src="@/assets/leftTop.png" alt="">
             </div>
             <div class="footer">
-              <RouterView />
+              <LeftTop />
             </div>
           </div>
           <div class="leftBox contentBox">
@@ -83,7 +85,7 @@ function windowSize() {
               <img src="@/assets/leftBon.png" alt="">
             </div>
             <div class="footer">
-              2
+              <LeftBottom />
             </div>
           </div>
         </div>
@@ -134,14 +136,15 @@ function windowSize() {
   background: #000;
   color: #fff;
   :deep(#dv-full-screen-container) {
-    box-sizing: border-box;
-    height: 100%;
+    //box-sizing: border-box;
+    //height: 100%;
     display: flex;
     flex-direction:column;
     background:url("@/assets/BG3.png") no-repeat;
     background-size: 100%;
     .titleBox{
       height: 7%;
+      min-height: 7%;
       background: url('@/assets/headerBg.png') no-repeat;
       background-size: 100%;
       .headerTime{
@@ -150,7 +153,7 @@ function windowSize() {
     }
     .content{
       width: 100%;
-      height: 100%;
+      height: 93%;
       padding:24px;
       display: flex;
       .left,.right{
