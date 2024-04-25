@@ -22,7 +22,7 @@ const zNum = ref(0)
 const config = ref<Config>({
   data: [],
   unit: 'T',
-  rowNum: 6,
+  rowNum: 3,
   waitTime: 2000,
   valueFormatter(val: any) {
     val.percent = val.value / zNum.value * 100
@@ -35,7 +35,7 @@ watch(() => userStore.contentList, () => {
     config.value.data = userStore.contentList[1].map((item: any) => {
       zNum.value += item['提供语料数据量T']
       return {
-        name: `<p class="title">${item['供应商名称']}<span>${item['提供语料数据量T']}T</span></p>`,
+        name: `<p class="title">${item['供应商名称']}<span>${item['提供语料数据量T']}</span></p>`,
         value: item['提供语料数据量T'],
       }
     })
@@ -82,8 +82,11 @@ watch(() => userStore.contentList, () => {
         border: 1px solid #A6CFFF80;
         padding: 5px;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
         .inside-column {
           height: 100%;
+          max-height: 24px;
           background: linear-gradient(90deg, #00A3FF 1.42%, #75FBFD 100%);
           .shine {
             height: 50%;

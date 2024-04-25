@@ -11,12 +11,12 @@ export default function useDraw() {
     height: '1',
   }
   // * 设计稿尺寸（px）
-  let baseWidth = 1920
-  let baseHeight = 1080
-  if (window.innerWidth <= 1200) {
-    baseWidth = 3072
-    baseHeight = 1599
-  }
+  const baseWidth = 1920
+  const baseHeight = 1080
+  // if (window.innerWidth <= 1200) {
+  //   baseWidth = 3072
+  //   baseHeight = 1599
+  // }
   const baseProportion = Number.parseFloat((baseWidth / baseHeight).toFixed(5))
   // * 需保持的比例（默认1.77778）
   const calcRate = () => {
@@ -39,12 +39,12 @@ export default function useDraw() {
   }
 
   const resize = () => {
-    baseWidth = 1920
-    baseHeight = 1080
+    // baseWidth = 1920
+    // baseHeight = 1080
     clearTimeout(timer.value)
     timer.value = setTimeout(() => {
       calcRate()
-    }, 100)
+    }, 200)
   }
 
   // 改变窗口大小重新绘制
