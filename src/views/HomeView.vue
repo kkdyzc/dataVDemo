@@ -66,7 +66,7 @@ function windowSize() {
 
 <template>
   <div class="main">
-    <div id="dv-full-screen-container" ref="appRef" :key="time">
+    <div id="dv-full-screen-container" ref="appRef">
       <div class="titleBox">
         <div class="headerTime">
           2
