@@ -13,8 +13,23 @@ const router = useRouter()
 const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
 
 const time = ref(0)
+const currentDateTime = ref('')
 
 onMounted(() => {
+  const updateDateTime = () => {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = (now.getMonth() + 1).toString().padStart(2, '0')
+    const day = now.getDate().toString().padStart(2, '0')
+    const time = now.toLocaleTimeString()
+    currentDateTime.value = `${year}-${month}-${day} ${time}`
+  }
+
+  // 初始更新时间
+  updateDateTime()
+
+  // 每秒更新一次时间
+  setInterval(updateDateTime, 1000)
   calcRate()
   windowDraw()
   window.addEventListener('resize', windowSize)
@@ -69,7 +84,8 @@ function windowSize() {
     <div id="dv-full-screen-container" ref="appRef">
       <div class="titleBox">
         <div class="headerTime">
-          2
+          <svg-icon name="timeIcon" width="24px" height="24px" />
+          <span style="font-size: 22px;margin:0 10px;">实时数据</span>{{ currentDateTime }}
         </div>
       </div>
       <div class="content">
@@ -93,13 +109,14 @@ function windowSize() {
         </div>
         <div class="middle ">
           <div class="middleBox contentBox">
-            <div class="header" />
             <div class="footer">
               2
             </div>
           </div>
           <div class="middleBox contentBox">
-            <div class="header" />
+            <div class="header">
+              <img src="@/assets/contentBon.png" alt="">
+            </div>
             <div class="footer">
               <middleBom />
             </div>
@@ -139,7 +156,7 @@ function windowSize() {
   :deep(#dv-full-screen-container) {
     //box-sizing: border-box;
     //height: 100%;
-    padding: 20px;
+    //padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -157,8 +174,16 @@ function windowSize() {
       min-height: 7%;
       background: url('@/assets/headerBg.png') no-repeat;
       background-size: 100%;
+      position: relative;
       .headerTime{
         font-family: 'dzFont';
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 48px;
+        left: 43px;
+        color:#00F0FF;
+        font-size: 18px;
       }
     }
     .content{
@@ -173,10 +198,23 @@ function windowSize() {
         flex-direction: column;
         justify-content: space-between;
         .contentBox{
-          height: calc(50% - 1%);
           width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          &:nth-child(1){
+            height: 45%;
+            min-height: 45%;
+          }
+          &:nth-child(2){
+            overflow: hidden;
+            height: 54%;
+
+          }
           .header{
-            height: 10%;
+            height: 48px;
             img{
               width: 100%;
               height: 100%;
@@ -194,13 +232,29 @@ function windowSize() {
         height: 100%;
         display: flex;
         flex-direction: column;
+        .middleBox{
+          margin: 0 16px;
+        }
         .middleBox:nth-child(1){
           height: 80%;
+          margin-bottom: -20px;
 
         }
         .middleBox:nth-child(2){
           flex: 1;
-          border: 1px red solid;
+          box-sizing: border-box;
+          background: url("@/assets/middleBomBg.png") no-repeat;
+          background-size:100% 100%;
+          .header{
+            height: 22%;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .footer{
+            height: 78%;
+          }
         }
       }
       .right{
