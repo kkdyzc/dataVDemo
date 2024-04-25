@@ -83,6 +83,12 @@ function init() {
         type: 'category',
         boundaryGap: false,
         data: title.value,
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(255, 255, 255, 0.7)', // x 轴线的颜色
+            width: 2, // x 轴线的宽度
+          },
+        },
       },
     ],
     yAxis: [

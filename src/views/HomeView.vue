@@ -221,7 +221,7 @@ function windowSize() {
             }
           }
           .footer{
-            padding-top: 10px;
+            padding-top: 20px;
             height: 90%;
           }
         }
