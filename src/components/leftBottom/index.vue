@@ -52,7 +52,7 @@ watch(() => userStore.contentList, () => {
 
 <style scoped lang="scss">
 .dataCont {
-  padding: 32px 20px;
+  padding: 16px 10px;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -77,7 +77,7 @@ watch(() => userStore.contentList, () => {
         }
         .info-name {
           width: 100%;
-          font-size: 24px;
+          font-size: 14px;
           .title {
             display: flex;
             align-items: center;
@@ -95,13 +95,13 @@ watch(() => userStore.contentList, () => {
               position: absolute;
               top: 50%;
               right: 50%;
-              transform: translate(20px, -50%);
+              transform: translate(14px, -50%);
               z-index: 10;
             }
           }
         }
         .ranking-value {
-          font-size: 28px;
+          font-size: 14px;
           display: none;
         }
       }
@@ -121,7 +121,7 @@ watch(() => userStore.contentList, () => {
           background: #E6F7FF80;
         }
         .inside-column {
-          margin: 0 16px;
+          margin: 0 8px;
           height: 100%;
           background: linear-gradient(90deg, #00A3FF 1.42%, #75FBFD 100%);
           .shine {

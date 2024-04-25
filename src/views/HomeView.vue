@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import axios from 'axios'
 import { read, utils } from 'xlsx'
 import { useuserStore } from '@/stores/user'
 import LeftTop from '@/components/leftTop/index.vue'
 import LeftBottom from '@/components/leftBottom/index.vue'
+import useDraw from '@/utils/useDraw'
 
 const userStore = useuserStore()
 const router = useRouter()
+const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
+
 const time = ref(0)
 const currentDateTime = ref('')
 
@@ -27,6 +30,8 @@ onMounted(() => {
 
   // 每秒更新一次时间
   setInterval(updateDateTime, 1000)
+  calcRate()
+  windowDraw()
   window.addEventListener('resize', windowSize)
 
   axios.get('/src/assets/数据语料平台.xlsx', {
@@ -65,6 +70,10 @@ onMounted(() => {
   })
 })
 
+onBeforeUnmount(() => {
+  unWindowDraw()
+})
+
 function windowSize() {
   time.value = Date.now()
 }
@@ -72,7 +81,7 @@ function windowSize() {
 
 <template>
   <div class="main">
-    <dv-full-screen-container>
+    <div id="dv-full-screen-container" ref="appRef" :key="time">
       <div class="titleBox">
         <div class="headerTime">
           <svg-icon name="timeIcon" width="24px" height="24px" />
@@ -132,7 +141,7 @@ function windowSize() {
           </div>
         </div>
       </div>
-    </dv-full-screen-container>
+    </div>
   </div>
 </template>
 
@@ -147,8 +156,17 @@ function windowSize() {
   :deep(#dv-full-screen-container) {
     //box-sizing: border-box;
     //height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: left top;
     background:url("@/assets/BG3.png") no-repeat;
     background-size: 100%;
     .titleBox{
