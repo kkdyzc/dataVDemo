@@ -13,7 +13,7 @@ watchEffect(() => {
           dataContent.value.push({
             id: item['序号'],
             name: item['数据来源'],
-            value: item['来源占比%'],
+            value: Number(item['来源占比%']),
           })
         }
       })
@@ -26,7 +26,9 @@ watchEffect(() => {
   <div class="app">
     <div v-for="item of dataContent" :key="item.id" :class="dataContent.length > 0 ? 'listDh' : ''" class="list">
       <div class="listData">
-        <p>{{ item.value }}%</p>
+        <p>
+          {{ item.value }}%
+        </p>
         <span>{{ item.name }}</span>
       </div>
     </div>
