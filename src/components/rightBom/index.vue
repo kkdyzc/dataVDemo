@@ -14,7 +14,7 @@ const seriesData = ref<any>([])
 watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[6]) {
-      userStore.contentList[6].forEach((item) => {
+      userStore.contentList[6].forEach((item: any) => {
         if (item['年份']) {
           title.value.push(item['年份'])
           handle.value.push(item['处理进程%'].toFixed(0))
@@ -95,7 +95,7 @@ function init() {
       {
         type: 'value',
         axisLabel: {
-          formatter: '{value} ', // 格式化 yAxis 标签
+          formatter: '{value}', // 格式化左侧 yAxis 标签
           color: 'rgba(255, 255, 255, 0.85)',
           fontSize: '12px',
         },
@@ -106,8 +106,18 @@ function init() {
           },
         },
       },
+      {
+        type: 'value',
+        axisLabel: {
+          formatter: '{value}%', // 格式化右侧 yAxis 标签为百分比
+          color: 'rgba(255, 255, 255, 0.85)',
+          fontSize: '12px',
+        },
+        min: 0,
+        max: 100,
+        splitLine: { show: false }, // 右侧轴不显示分隔线
+      },
     ],
-
     series: [
       {
         name: '语料收集数据量T',
