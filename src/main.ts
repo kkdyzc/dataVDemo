@@ -14,6 +14,8 @@ import globalComponent from '@/components/SvgIcon/index'
 import './assets/fonts/fonts.css'
 import '@unocss/reset/tailwind.css'
 
+import 'unocss'
+
 import App from '@/App.vue'
 
 const app = createApp(App)

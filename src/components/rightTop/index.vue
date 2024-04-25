@@ -13,15 +13,14 @@ onMounted(() => {
 watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[5]) {
-      userStore.contentList[5].forEach((item) => {
+      userStore.contentList[5].forEach((item: any) => {
         if (item['语料用途名称']) {
           dataContent.value.push({
             name: item['语料用途名称'],
-            value: item['用途数据量T'],
+            value: (item['用途数据量T'] / userStore.contentList[0][0]['总语料量'].split('T')[0] * 100).toFixed(2),
           })
         }
       })
-      console.log(dataContent.value)
       init()
     }
   }
@@ -88,9 +87,10 @@ function init() {
       },
     },
     title: {
-      text: dataContent.value && `${dataContent.value.reduce((prev: any, cur: any) => {
-        return prev + cur.value
-      }, 0)}%`, // 将总数放在标题中
+      text: '100%',
+      // text: dataContent.value && `${dataContent.value.reduce((prev: any, cur: any) => {
+      //   return prev + cur.value
+      // }, 0)}%`, // 将总数放在标题中
       subtext: '分类占比', // 将“总数”放在副标题中
       textStyle: {
         color: '#FFF',
@@ -98,12 +98,12 @@ function init() {
         align: 'center',
       },
       subtextStyle: {
-        fontSize: 16,
+        fontSize: 12,
         color: ['#FFF'],
         align: 'center', // 调整副标题位置
       },
       x: 'center',
-      y: '30%', // 调整标题和副标题的位置
+      y: '33%', // 调整标题和副标题的位置
     },
     legend: {
       orient: 'horizontal', // 设置水平方向
@@ -127,7 +127,7 @@ function init() {
         startAngle: 10, // 起始角度
         labelLine: {
           show: true,
-          length: 10, // 调整连接线的长度
+          length: 20, // 调整连接线的长度
           length2: 20,
           lineStyle: {
             width: 2,
@@ -144,30 +144,30 @@ function init() {
             t: {
               color: '#FFF',
               lineHeight: 20,
-              fontSize: 20,
+              fontSize: 12,
               align: 'left',
             },
             b: {
               color: '#FFF',
               lineHeight: 20,
-              fontSize: 24, // 调整数字部分的字体大小
+              fontSize: 18, // 调整数字部分的字体大小
               fontWeight: 'bold', // 加粗效果
-              align: 'left',
+              align: 'center',
             },
           },
         },
         center: ['50%', '40%'], // 调整饼图的位置
-        radius: ['35%', '50%'], // 调整饼图的大小
+        radius: ['40%', '50%'], // 调整饼图的大小
         data: dataContent.value,
       },
       {
         type: 'pie',
         silent: true, // Make it silent to prevent interaction
         center: ['50%', '40%'], // Same center as the main pie chart
-        radius: ['55%', '55.9%'], // 调整圆圈的半径，使其位于整个饼图的最外层并且距离20px
+        radius: ['55%', '55.5%'], // 调整圆圈的半径，使其位于整个饼图的最外层并且距离20px
         itemStyle: {
-          color: 'rgba(255, 255, 255, .3)', // 0.7透明度的白色
-          borderColor: 'rgba(255, 255, 255, .3)', // 边框颜色为白色
+          color: 'rgba(255, 255, 255, .1)', // 0.7透明度的白色
+          borderColor: 'rgba(255, 255, 255, .1)', // 边框颜色为白色
           borderWidth: 1, // 边框宽度
         },
         label: {
@@ -182,7 +182,7 @@ function init() {
         radius: ['0%', '31%'], // Adjust the radius for the white circle
         itemStyle: {
           color: 'rgba(255, 255, 255, .2)', // 完全透明的白色
-          borderColor: 'rgba(175,175,175,0.6)', // 边框颜色为白色
+          borderColor: 'rgba(175,175,175,0.2)', // 边框颜色为白色
           borderWidth: 8, // 边框宽度
         },
         label: {
@@ -197,8 +197,7 @@ function init() {
 
 <template>
   <div
-    ref="appRef" class="app" style="width: 100%;height: 100%;;
-"
+    ref="appRef" class="app" style="width: 100%;height: 100%;"
   />
 </template>
 

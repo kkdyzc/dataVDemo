@@ -129,6 +129,7 @@ function windowSize() {
               <img src="@/assets/rightTop.png" alt="">
             </div>
             <div class="footer">
+              <img class="rightTopYuan" src="@/assets/rightTopYuan.png" alt="">
               <rightTop />
             </div>
           </div>
@@ -224,6 +225,21 @@ function windowSize() {
           .footer{
             padding-top: 20px;
             height: 90%;
+            position: relative;
+            .rightTopYuan{
+              position: absolute;
+              top: 12%;
+              left: 25%;
+              animation: rotate 5s linear infinite;
+            }
+            @keyframes rotate {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
           }
         }
 
