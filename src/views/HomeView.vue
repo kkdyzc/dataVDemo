@@ -10,8 +10,23 @@ import LeftBottom from '@/components/leftBottom/index.vue'
 const userStore = useuserStore()
 const router = useRouter()
 const time = ref(0)
+const currentDateTime = ref('')
 
 onMounted(() => {
+  const updateDateTime = () => {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = (now.getMonth() + 1).toString().padStart(2, '0')
+    const day = now.getDate().toString().padStart(2, '0')
+    const time = now.toLocaleTimeString()
+    currentDateTime.value = `${year}-${month}-${day} ${time}`
+  }
+
+  // 初始更新时间
+  updateDateTime()
+
+  // 每秒更新一次时间
+  setInterval(updateDateTime, 1000)
   window.addEventListener('resize', windowSize)
 
   axios.get('/src/assets/数据语料平台.xlsx', {
@@ -50,12 +65,6 @@ onMounted(() => {
   })
 })
 
-function getTime() {
-  // setInterval(() => {
-  //   console.log('我操')
-  // }, 1000)
-}
-
 function windowSize() {
   time.value = Date.now()
 }
@@ -63,11 +72,11 @@ function windowSize() {
 
 <template>
   <div class="main">
-    <dv-full-screen-container :key="time">
+    <dv-full-screen-container>
       <div class="titleBox">
         <div class="headerTime">
           <svg-icon name="timeIcon" width="24px" height="24px" />
-          {{ getTime() }}
+          <span style="font-size: 22px;margin:0 10px;">实时数据</span>{{ currentDateTime }}
         </div>
       </div>
       <div class="content">
@@ -147,8 +156,16 @@ function windowSize() {
       min-height: 7%;
       background: url('@/assets/headerBg.png') no-repeat;
       background-size: 100%;
+      position: relative;
       .headerTime{
         font-family: 'dzFont';
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 48px;
+        left: 43px;
+        color:#00F0FF;
+        font-size: 18px;
       }
     }
     .content{
