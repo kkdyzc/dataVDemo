@@ -137,7 +137,7 @@ watch(() => userStore.contentList, () => {
     }
   }
   .el-dialog__body {
-    padding: 80px 50px 10px;
+    padding: 80px 50px 20px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
