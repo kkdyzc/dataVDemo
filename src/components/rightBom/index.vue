@@ -14,7 +14,7 @@ const seriesData = ref<any>([])
 watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[6]) {
-      userStore.contentList[6].forEach((item) => {
+      userStore.contentList[6].forEach((item: any) => {
         if (item['年份']) {
           title.value.push(item['年份'])
           handle.value.push(item['处理进程%'].toFixed(0))

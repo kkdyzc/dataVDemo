@@ -8,13 +8,9 @@ import ElementPlus from 'element-plus'
 import locale from 'element-plus/dist/locale/zh-cn.mjs'
 import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import DataVVue3 from '@kjgl77/datav-vue3'
 import router from './router'
 import globalComponent from '@/components/SvgIcon/index'
 import './assets/fonts/fonts.css'
-import '@unocss/reset/tailwind.css'
-
-import 'unocss'
 
 import App from '@/App.vue'
 
@@ -22,7 +18,6 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue))
   app.component(key, <Component>component)
 
-app.use(DataVVue3)
 app.use(createPinia())
 app.use(router)
 app.use(ElementPlus, { locale })
