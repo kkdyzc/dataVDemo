@@ -17,7 +17,7 @@ watchEffect(() => {
         if (item['语料用途名称']) {
           dataContent.value.push({
             name: item['语料用途名称'],
-            value: item['用途数据量T'],
+            value: (item['用途数据量T'] / userStore.contentList[0][0]['总语料量'].split('T')[0] * 100).toFixed(2),
           })
         }
       })
@@ -87,9 +87,10 @@ function init() {
       },
     },
     title: {
-      text: dataContent.value && `${dataContent.value.reduce((prev: any, cur: any) => {
-        return prev + cur.value
-      }, 0)}%`, // 将总数放在标题中
+      text: '100%',
+      // text: dataContent.value && `${dataContent.value.reduce((prev: any, cur: any) => {
+      //   return prev + cur.value
+      // }, 0)}%`, // 将总数放在标题中
       subtext: '分类占比', // 将“总数”放在副标题中
       textStyle: {
         color: '#FFF',
