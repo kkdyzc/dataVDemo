@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+function px(px: number) {
+  return `${px / 100 * 2}rem`
+}
+
+const iconWidth = computed(() => px(24)) // 24px宽度
+const iconHeight = computed(() => px(24)) // 24px高度
 </script>
 
 <template>

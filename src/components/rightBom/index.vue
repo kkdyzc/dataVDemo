@@ -42,17 +42,35 @@ function init() {
           backgroundColor: '#6a7985',
         },
       },
-      formatter(params) {
+      formatter(params: any) {
         let content = `${params[0].name}<br/>`
-        params.forEach((item) => {
-          // 保留颜色的圆点
-          content += `<span style="display:inline-block;margin-right:5px;border-radius:50%;width:5px;height:5px;background-color:${item.color}"></span>`
-          content += `${item.seriesName}: ${item.value}<br/>`
+        params.forEach((item: any) => {
+          if (item.seriesName === '处理进程') {
+            content += `<span style="display:inline-block;margin-right:5px;border-radius:50%;width:5px;height:5px;background-color:${item.color}"></span>`
+            content += `${item.seriesName}: ${item.value}%<br/>`
+          }
+          else {
+            content += `<span style="display:inline-block;margin-right:5px;border-radius:50%;width:5px;height:5px;background-color:${item.color}"></span>`
+            content += `${item.seriesName}: ${item.value}<br/>`
+          }
         })
         // 新增月收信息
-        content += '处理进程:' + `${`${handle.value[params[0].dataIndex]}%`}` + '<br/>'
         return content
       },
+    },
+    legend: {
+      orient: 'horizontal', // 设置水平方向
+      x: 'right',
+      y: '5%',
+      icon: 'circle',
+      // width: '80%',
+      textStyle: {
+        color: '#FFF',
+        fontSize: 12,
+      },
+      itemGap: 20, // 设置分类之间的间距
+      itemWidth: 10, // 设置分类图标的宽度
+      itemHeight: 10, // 设置分类图标的高度
     },
     grid: {
       left: '3%',
@@ -65,6 +83,12 @@ function init() {
         type: 'category',
         boundaryGap: false,
         data: title.value,
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(255, 255, 255, 0.7)', // x 轴线的颜色
+            width: 2, // x 轴线的宽度
+          },
+        },
       },
     ],
     yAxis: [
@@ -83,6 +107,7 @@ function init() {
         },
       },
     ],
+
     series: [
       {
         name: '语料收集数据量T',
@@ -99,17 +124,18 @@ function init() {
             colorStops: [
               {
                 offset: 0,
-                color: 'rgba(1, 180, 255, 0.5)',
+                color: 'rgba(34, 118, 252, 0.4)',
               },
               {
                 offset: 1,
-                color: 'rgba(1, 180, 255, 0.2)',
+                color: 'rgba(34, 118, 252, 0.2)',
               },
             ],
           },
         },
         lineStyle: {
           width: 2,
+          color: '#00A3FF',
         },
         data: data1.value,
       },
@@ -127,19 +153,50 @@ function init() {
             colorStops: [
               {
                 offset: 0,
-                color: 'rgba(142,220,152,0.5)',
+                color: 'rgba(0,163,255,0.4)',
               },
               {
                 offset: 1,
-                color: 'rgba(142,220,152, 0.2)',
+                color: 'rgba(0,163,255, 0.2)',
               },
             ],
           },
         },
         lineStyle: {
           width: 2,
+          color: '#00F0FF',
         },
         data: data2.value,
+      },
+
+      {
+        name: '处理进程',
+        type: 'line',
+        symbolSize: 10,
+        smooth: false,
+        emphasis: {
+          focus: 'series',
+        },
+        areaStyle: {
+          color: {
+            type: 'linear',
+            colorStops: [
+              {
+                offset: 0,
+                color: 'rgba(255, 207, 95, .2)',
+              },
+              {
+                offset: 1,
+                color: 'rgba(255, 207, 95, 0.2)',
+              },
+            ],
+          },
+        },
+        lineStyle: {
+          width: 2,
+          color: '#FFCF5F',
+        },
+        data: handle.value,
       },
     ],
   })
@@ -151,5 +208,9 @@ function init() {
 </template>
 
 <style scoped lang="scss">
-
+.app{
+  background: url("@/assets/rightTopBg.png") no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+}
 </style>

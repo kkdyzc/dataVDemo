@@ -34,43 +34,6 @@ function init() {
   // })
   // console.log(title.value)
   const myChart = echarts.init(appRef.value)
-  const echartData = [
-    {
-      value: 5555,
-      name: '低风险',
-      progress: 25,
-    },
-    {
-      value: 3221,
-      name: '一般风险',
-      progress: 30,
-    },
-    {
-      value: 1222,
-      name: '较大风险',
-      progress: 50,
-    },
-    {
-      value: 1222,
-      name: '较大风险1',
-      progress: 50,
-    },
-    {
-      value: 1222,
-      name: '较大风险2',
-      progress: 50,
-    },
-    {
-      value: 1222,
-      name: '较大风险3',
-      progress: 50,
-    },
-    {
-      value: 1222,
-      name: '较大风险4',
-      progress: 50,
-    },
-  ]
 
   const color = [
     [
@@ -102,7 +65,7 @@ function init() {
       { offset: 1, color: '#ffa854' },
     ],
   ]
-  dataContent.value.forEach((item: any, index) => {
+  dataContent.value.forEach((item: any, index: any) => {
     item.itemStyle = {
       color: new echarts.graphic.LinearGradient(
         0,
@@ -116,7 +79,7 @@ function init() {
 
   myChart.setOption({
     tooltip: {
-      formatter(params) {
+      formatter(params: any) {
         let content = ''
         if (params.seriesType === 'pie')
           content += `${params.marker + params.name}: ${params.value}`
@@ -125,47 +88,38 @@ function init() {
       },
     },
     title: {
-      text: dataContent.value && `${dataContent.value.reduce((prev, cur) => {
+      text: dataContent.value && `${dataContent.value.reduce((prev: any, cur: any) => {
         return prev + cur.value
       }, 0)}%`, // 将总数放在标题中
       subtext: '分类占比', // 将“总数”放在副标题中
       textStyle: {
         color: '#FFF',
-        fontSize: 25, // 调整标题字体大小
+        fontSize: 22, // 调整标题字体大小
         align: 'center',
       },
       subtextStyle: {
-        fontSize: 20,
+        fontSize: 16,
         color: ['#FFF'],
         align: 'center', // 调整副标题位置
       },
       x: 'center',
-      y: '35%', // 调整标题和副标题的位置
+      y: '30%', // 调整标题和副标题的位置
     },
     legend: {
       orient: 'horizontal', // 设置水平方向
       x: 'center',
-      y: '80%',
+      y: '90%',
       width: '80%',
+      icon: 'circle',
       textStyle: {
         color: '#FFF',
-        fontSize: 20,
+        fontSize: 12,
       },
-      itemGap: 20, // 设置分类之间的间距
+      itemGap: 10, // 设置分类之间的间距
       itemWidth: 10, // 设置分类图标的宽度
       itemHeight: 10, // 设置分类图标的高度
-      rich: {
-        circle: {
-          width: 10, // 设置圆的直径
-          height: 10,
-          lineHeight: 10,
-          align: 'center',
-          backgroundColor: '#FFF', // 设置圆的颜色
-          borderRadius: 5, // 设置圆的圆角半径，使其看起来更圆润
-        },
-      },
-
     },
+
     series: [
       {
         type: 'pie',
@@ -173,15 +127,15 @@ function init() {
         startAngle: 10, // 起始角度
         labelLine: {
           show: true,
-          length: 50, // 调整连接线的长度
-          length2: 10,
+          length: 10, // 调整连接线的长度
+          length2: 20,
           lineStyle: {
             width: 2,
             color: '#808589',
           },
         },
         label: {
-          formatter: (params) => {
+          formatter: (params: any) => {
             const name = params.name
             const value = params.value
             return `{t|${name}}\n{b|${value}%}`
@@ -242,9 +196,15 @@ function init() {
 </script>
 
 <template>
-  <div ref="appRef" class="app" style="width: 100%;height: 100%;" />
+  <div
+    ref="appRef" class="app" style="width: 100%;height: 100%;;
+"
+  />
 </template>
 
 <style scoped lang="scss">
-
+.app{
+  background: url("@/assets/rightTopBg.png") no-repeat;
+  background-size: 100% 100%;
+}
 </style>
