@@ -81,7 +81,7 @@ function windowSize() {
 
 <template>
   <div class="main">
-    <div id="dv-full-screen-container" ref="appRef" :key="time">
+    <div id="dv-full-screen-container" ref="appRef">
       <div class="titleBox">
         <div class="headerTime">
           <svg-icon name="timeIcon" width="24px" height="24px" />
@@ -156,7 +156,7 @@ function windowSize() {
   :deep(#dv-full-screen-container) {
     //box-sizing: border-box;
     //height: 100%;
-    padding: 20px;
+    //padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -198,17 +198,30 @@ function windowSize() {
         flex-direction: column;
         justify-content: space-between;
         .contentBox{
-          height: calc(50% - 1%);
           width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          &:nth-child(1){
+            height: 45%;
+            min-height: 45%;
+          }
+          &:nth-child(2){
+            overflow: hidden;
+            height: 54%;
+
+          }
           .header{
-            height: 10%;
+            height: 48px;
             img{
               width: 100%;
               height: 100%;
             }
           }
           .footer{
-            padding-top: 20px;
+            padding-top: 10px;
             height: 90%;
           }
         }
@@ -219,19 +232,28 @@ function windowSize() {
         height: 100%;
         display: flex;
         flex-direction: column;
+        .middleBox{
+          margin: 0 16px;
+        }
         .middleBox:nth-child(1){
           height: 80%;
+          margin-bottom: -20px;
 
         }
         .middleBox:nth-child(2){
           flex: 1;
-          border: 1px red solid;
+          box-sizing: border-box;
+          background: url("@/assets/middleBomBg.png") no-repeat;
+          background-size:100% 100%;
           .header{
             height: 22%;
             img{
               width: 100%;
               height: 100%;
             }
+          }
+          .footer{
+            height: 78%;
           }
         }
       }
