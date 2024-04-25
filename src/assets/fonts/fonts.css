@@ -4,3 +4,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'PangMenZhengDaoBiao';
+    src: url('./PangMenZhengDaoBiao.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

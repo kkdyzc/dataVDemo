@@ -6,6 +6,7 @@ import { read, utils } from 'xlsx'
 import { useuserStore } from '@/stores/user'
 import LeftTop from '@/components/leftTop/index.vue'
 import LeftBottom from '@/components/leftBottom/index.vue'
+import MiddleTop from '@/components/middleTop/index.vue'
 import useDraw from '@/utils/useDraw'
 
 const userStore = useuserStore()
@@ -110,7 +111,7 @@ function windowSize() {
         <div class="middle ">
           <div class="middleBox contentBox">
             <div class="footer">
-              2
+              <MiddleTop />
             </div>
           </div>
           <div class="middleBox contentBox">
@@ -238,7 +239,9 @@ function windowSize() {
         .middleBox:nth-child(1){
           height: 80%;
           margin-bottom: -20px;
-
+          .footer{
+            height: 100%;
+          }
         }
         .middleBox:nth-child(2){
           flex: 1;
