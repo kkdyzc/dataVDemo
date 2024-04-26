@@ -79,6 +79,10 @@ onBeforeUnmount(() => {
 function windowSize() {
   time.value = Date.now()
 }
+
+function goDetail() {
+  router.push({ name: 'detail' })
+}
 </script>
 
 <template>
@@ -111,7 +115,7 @@ function windowSize() {
         </div>
         <div class="middle ">
           <div class="middleBox contentBox">
-            <div class="footer">
+            <div class="footer" style="cursor: pointer" @click="goDetail">
               <MiddleTop />
             </div>
           </div>
