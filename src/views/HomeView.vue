@@ -15,7 +15,7 @@ const { appRef, calcRate, windowDraw, unWindowDraw } = useDraw()
 
 const time = ref(0)
 const currentDateTime = ref('')
-
+const url = ref('http://camp-dev.effyic.com/api/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6ODIzLCJwdXIiOiJibG9iX2lkIn19--700cc052c015420366e6b72c8643abef5380d042/%E6%95%B0%E6%8D%AE%E8%AF%AD%E6%96%99%E5%B9%B3%E5%8F%B0%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE.xlsx')
 onMounted(() => {
   const updateDateTime = () => {
     const now = new Date()
@@ -35,7 +35,8 @@ onMounted(() => {
   windowDraw()
   window.addEventListener('resize', windowSize)
 
-  axios.get('/src/assets/数据语料平台.xlsx', {
+  axios.get('/数据语料平台.xlsx', {
+  // axios.get(url.value, {
     responseType: 'blob',
   }).then((response) => {
     const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
