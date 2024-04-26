@@ -4,10 +4,12 @@ import { useuserStore } from '@/stores/user'
 
 const userStore = useuserStore()
 const dataContent = ref<any>([])
+const flg = ref(false)
 
 watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[4]) {
+      dataContent.value = []
       userStore.contentList[4].forEach((item: any) => {
         if (item['数据来源']) {
           dataContent.value.push({

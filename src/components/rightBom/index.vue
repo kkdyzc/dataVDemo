@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import * as echarts from 'echarts'
 import { useuserStore } from '@/stores/user'
 
@@ -10,10 +10,17 @@ const handle = ref<any>([])
 const data1 = ref<any>([])
 const data2 = ref<any>([])
 const seriesData = ref<any>([])
+const myChart = ref<any>()
+const flg = ref(false)
+
+onMounted(() => {
+  flg.value = false
+})
 
 watchEffect(() => {
   if (userStore.contentList) {
-    if (userStore.contentList[6]) {
+    if (userStore.contentList[6] && !flg.value) {
+      flg.value = true
       userStore.contentList[6].forEach((item: any) => {
         if (item['年份']) {
           title.value.push(item['年份'])
@@ -32,8 +39,10 @@ function init() {
   //   title.value.push(item['年份'])
   // })
   // console.log(title.value)
-  const myChart = echarts.init(appRef.value)
-  myChart.setOption({
+  if (!appRef.value)
+    return
+  myChart.value = echarts.init(appRef.value)
+  myChart.value.setOption({
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -211,6 +220,10 @@ function init() {
     ],
   })
 }
+onUnmounted(() => {
+  // myChart.value.dispose()
+  myChart.value = null
+})
 </script>
 
 <template>

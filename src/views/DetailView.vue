@@ -75,6 +75,10 @@ onBeforeUnmount(() => {
 function windowSize() {
   time.value = Date.now()
 }
+
+function toHome() {
+  router.replace('/')
+}
 </script>
 
 <template>
@@ -85,6 +89,7 @@ function windowSize() {
           <svg-icon name="timeIcon" width="24px" height="24px" />
           <span style="font-size: 22px;margin:0 10px;">实时数据</span>{{ currentDateTime }}
         </div>
+        <div class="back" @click="toHome" />
       </div>
       <div class="content">
         <div class="left ">
@@ -166,6 +171,12 @@ function windowSize() {
         left: 43px;
         color:#00F0FF;
         font-size: 18px;
+      }
+      .back{
+        height: 100%;
+        width: 600px;
+        margin: 0 auto;
+        cursor: pointer;
       }
     }
     .content{
