@@ -6,6 +6,9 @@ import { read, utils } from 'xlsx'
 import { useuserStore } from '@/stores/user'
 import LeftTop from '@/components/leftTop/index.vue'
 import LeftBottom from '@/components/leftBottom/index.vue'
+import middleBom from '@/components/middleBom/index.vue'
+import rightTop from '@/components/rightTop/index.vue'
+import rightBom from '@/components/rightBom/index.vue'
 import MiddleTop from '@/components/middleTop/index.vue'
 import useDraw from '@/utils/useDraw'
 
@@ -55,7 +58,6 @@ onMounted(() => {
           return ws
         })
         userStore.contentList = allWorksheetsData
-        console.log(allWorksheetsData)
         // 取第一张表
         // console.log(workbook.SheetNames)
         // const wsname = workbook.SheetNames[1]
@@ -81,7 +83,7 @@ function windowSize() {
 }
 
 function goDetail() {
-  router.push({ name: 'detail' })
+  router.replace({ name: 'detail' })
 }
 </script>
 

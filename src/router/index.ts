@@ -12,17 +12,12 @@ const router = createRouter({
       path: '/home',
       name: 'home',
       component: HomeView,
-      // redirect: '/home/staging',
+      // redirect: '/home',
       // children: [
       //   {
-      //     path: 'staging',
-      //     name: 'staging',
-      //     component: () => import('@/views/StagingView.vue'),
-      //   },
-      //   {
-      //     path: 'test',
-      //     name: 'test',
-      //     component: () => import('@/views/testView.vue'),
+      //     path: '/detail',
+      //     name: 'detail',
+      //     component: () => import('@/views/detail.vue'),
       //   },
       // ],
     },

@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import * as echarts from 'echarts'
 import { useuserStore } from '@/stores/user'
 
 const userStore = useuserStore()
 const appRef = ref()
 const dataContent = ref<any>([])
+const myChart = ref<any>()
+const flg = ref(false)
+
 onMounted(() => {
-  // init()
+  flg.value = false
 })
 
 watchEffect(() => {
   if (userStore.contentList) {
-    if (userStore.contentList[5]) {
+    if (userStore.contentList[5] && !flg.value) {
+      flg.value = true
       userStore.contentList[5].forEach((item: any) => {
         if (item['语料用途名称']) {
           dataContent.value.push({
@@ -27,12 +31,15 @@ watchEffect(() => {
 })
 
 function init() {
+  if (!appRef.value)
+    return
+
   // userStore.contentList[6].forEach((item) => {
   //   console.log(item)
   //   title.value.push(item['年份'])
   // })
   // console.log(title.value)
-  const myChart = echarts.init(appRef.value)
+  myChart.value = echarts.init(appRef.value)
 
   const color = [
     [
@@ -76,7 +83,7 @@ function init() {
     }
   })
 
-  myChart.setOption({
+  myChart.value.setOption({
     tooltip: {
       formatter(params: any) {
         let content = ''
@@ -193,6 +200,9 @@ function init() {
     ],
   })
 }
+onUnmounted(() => {
+  myChart.value = null
+})
 </script>
 
 <template>
