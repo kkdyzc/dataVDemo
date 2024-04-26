@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { useuserStore } from '@/stores/user'
 
 interface DataType {
@@ -31,12 +31,33 @@ watch(() => userStore.contentList, () => {
     })
   }
 }, { immediate: true, deep: true })
+
+onMounted(() => {
+  const box = document.querySelector('.middleCont .content')
+  if (box) {
+    const imgArr = box.querySelectorAll('img')
+    nextTick(() => {
+      Array.from(imgArr).forEach((item) => {
+        item.onmousemove = function (e) {
+          const ev = e || event
+          ev.preventDefault()
+          // ev.cancelBubble = true
+          // ev.returnValue = false
+        }
+        item.onmousedown = function (e) {
+          const ev = e || event
+          ev.preventDefault()
+        }
+      })
+    })
+  }
+})
 </script>
 
 <template>
   <div class="middleCont">
     <div class="topBox">
-      <img src="@/assets/middleLeftImg.png" class="middleLeftImg img" alt="">
+      <img src="@/assets/middleLeftImg.png" class="middleLeftImg img" alt="" @mousemove.prevent @mousedown.prevent>
       <div class="content">
         <div class="contentBox">
           <div class="item">
@@ -109,9 +130,9 @@ watch(() => userStore.contentList, () => {
           </div>
         </div>
       </div>
-      <img src="@/assets/middleRightImg.png" class="middleRightImg img" alt="">
+      <img src="@/assets/middleRightImg.png" class="middleRightImg img" alt="" @mousemove.prevent @mousedown.prevent>
     </div>
-    <img src="@/assets/middleBottomImg.png" class="middleBottomImg img" alt="">
+    <img src="@/assets/middleBottomImg.png" class="middleBottomImg img" alt="" @mousemove.prevent @mousedown.prevent>
   </div>
 </template>
 

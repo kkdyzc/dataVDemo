@@ -15,6 +15,7 @@ interface Config {
   rowNum: number
   waitTime: number
   valueFormatter: any
+  sort: boolean
 }
 
 const userStore = useuserStore()
@@ -25,6 +26,7 @@ const config = ref<Config>({
   data: [],
   unit: 'T',
   rowNum: 8,
+  sort: false,
   waitTime: 2000,
   valueFormatter(val: any) {
     val.percent = val.percentage
@@ -56,6 +58,7 @@ watch(() => userStore.contentList, () => {
         })
       }
     })
+    config.value.data.sort((a, b) => b.percentage - a.percentage)
     nextTick(() => {
       const el = scrollBox.value.$el.children as HTMLDivElement[]
       if (el.length > 0) {
