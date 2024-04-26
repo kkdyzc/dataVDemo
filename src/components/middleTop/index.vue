@@ -19,6 +19,7 @@ watch(() => userStore.contentList, () => {
     const num = userStore.contentList[0][0]['总语料量']
     if (num)
       zNum.value = Number(String(num).split('T')[0])
+    data.value = []
     userStore.contentList[6].forEach((item: any) => {
       if (Number(item['年份']) > 0) {
         data.value.push({
