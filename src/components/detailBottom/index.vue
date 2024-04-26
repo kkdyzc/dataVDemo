@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
+import { useuserStore } from '@/stores/user'
+
+const userStore = useuserStore()
 
 const config = reactive({
   header: ['任务名称', 'URL', '服务器', '语料文件夹'],
@@ -7,65 +10,28 @@ const config = reactive({
   headerHeight: 40,
   oddRowBGC: 'transparent',
   evenRowBGC: 'transparent',
-  data: [
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivNhttps://www.figma.com/file/iGdXZ7koVUUR7https://www.figma.com/file/iGdXZ7koVUUR7</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
-  ],
+  data: [] as any[][],
   columnWidth: [150, 360],
   index: false,
   align: ['center'],
   rowNum: 6,
 })
 
-function mouseoverHandler(e: any) {
-  console.log(e)
-}
-
-function clickHandler(e: any) {
-  console.log(e)
-}
+watch(() => userStore.content2List, () => {
+  if (userStore.content2List.length > 0) {
+    config.data = []
+    userStore.content2List[2].forEach((item: any) => {
+      if (item['任务名称']?.length > 0)
+        config.data.push([item['任务名称'], item?.url ? `<span class="urlColor">${item.url}</span>` : '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', item?.ip || '172.16.0.250-256', item?.type || '文件夹'])
+    })
+  }
+}, { immediate: true, deep: true })
 </script>
 
 <template>
   <div class="app">
     <dv-scroll-board
       :config="config" style="width: 100%;height: 100%;margin-top: 20px"
-      @mouseover="mouseoverHandler" @click="clickHandler"
     />
   </div>
 </template>

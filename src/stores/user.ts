@@ -4,5 +4,6 @@ import { defineStore } from 'pinia'
 export const useuserStore = defineStore('user', () => {
   const routerList = ref(JSON.parse(localStorage.getItem('routerList') as string))
   const contentList = ref<any>([])
-  return { routerList, contentList }
+  const content2List = ref<any>([])
+  return { routerList, contentList, content2List }
 })

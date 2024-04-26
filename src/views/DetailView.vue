@@ -31,7 +31,7 @@ onMounted(() => {
   windowDraw()
   window.addEventListener('resize', windowSize)
 
-  axios.get('/数据语料平台.xlsx', {
+  axios.get('/语料制作流程数据.xlsx', {
     // axios.get(url.value, {
     responseType: 'blob',
   }).then((response) => {
@@ -50,8 +50,7 @@ onMounted(() => {
           const ws = utils.sheet_to_json(workbook.Sheets[sheetName])
           return ws
         })
-        userStore.contentList = allWorksheetsData
-        console.log(allWorksheetsData)
+        userStore.content2List = allWorksheetsData
         // 取第一张表
         // console.log(workbook.SheetNames)
         // const wsname = workbook.SheetNames[1]
@@ -105,7 +104,7 @@ function toHome() {
         <div class="middle ">
           <div class="middleBox contentBox">
             <div class="footer">
-              中间上
+              <detailTop />
             </div>
           </div>
           <div class="middleBox contentBox">
@@ -181,8 +180,9 @@ function toHome() {
     }
     .content{
       width: 100%;
-      height: 100%;
+      height: 93%;
       padding:24px;
+      box-sizing: border-box;
       display: flex;
       .left,.right{
         width: 25%;
@@ -198,14 +198,16 @@ function toHome() {
           flex-direction: column;
           .header{
             height: 48px;
+            margin-bottom: 20px;
             img{
               width: 100%;
               height: 100%;
             }
           }
           .footer{
-            padding-top: 20px;
             height: 100%;
+            max-height: calc(100% - 68px);
+            flex: 1;
             position: relative;
           }
         }
@@ -221,7 +223,7 @@ function toHome() {
           margin: 0 16px;
         }
         .middleBox:nth-child(1){
-          height: 60%;
+          height: 55%;
           margin-bottom: 24px;
           .footer{
             height: 100%;
