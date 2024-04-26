@@ -2,56 +2,54 @@
 import { reactive } from 'vue'
 
 const config = reactive({
-  header: ['任务名称', '执行时长', '处理状态', '操作'],
+  header: ['任务名称', 'URL', '服务器', '语料文件夹'],
   headerBGC: 'rgba(0, 163, 255, 0.2)',
   headerHeight: 40,
   oddRowBGC: 'transparent',
   evenRowBGC: 'transparent',
   data: [
-    ['任务1', '6h', '<span class="error" />', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="success" />', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="handle"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
-    ['任务1', '6h', '<span class="error"/>', '<span class="detail">查看详情</span>'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivNhttps://www.figma.com/file/iGdXZ7koVUUR7https://www.figma.com/file/iGdXZ7koVUUR7</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
+    ['任务1', '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', '172.16.0.250-256', '文件夹'],
   ],
+  columnWidth: [150, 360],
   index: false,
   align: ['center'],
-  rowNum: 20,
+  rowNum: 6,
 })
 
 function mouseoverHandler(e: any) {
@@ -66,7 +64,7 @@ function clickHandler(e: any) {
 <template>
   <div class="app">
     <dv-scroll-board
-      :config="config" style="width: 100%;height: 100%;"
+      :config="config" style="width: 100%;height: 100%;margin-top: 20px"
       @mouseover="mouseoverHandler" @click="clickHandler"
     />
   </div>
@@ -76,7 +74,7 @@ function clickHandler(e: any) {
 .app {
   width: 100%;
   height: 100%;
-
+  box-sizing: border-box;
   :deep(.header) {
     align-items: center;
     display: flex;
@@ -84,33 +82,11 @@ function clickHandler(e: any) {
   }
 
   :deep(.row-item) {
-    .error {
-      &::before {
-        content: '已停止';
-        color: #FF386B;
-        padding: 3px 8px;
-        background: rgba(255, 56, 107, 0.2);
-      }
-    }
-
-    .success {
-      &::before {
-        content: '已完成';
-        color: #00A3FF;
-        padding: 3px 8px;
-        background: rgba(0, 163, 255, 0.2);
-      }
-    }
-    .handle{
-      &::before {
-        content: '处理中';
-        color: #00F0FF;
-        padding: 3px 8px;
-        background: rgba(0, 240, 255, 0.1);
-      }
-    }
-    .detail{
+    .urlColor{
       color: #00A3FF;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
       cursor: pointer;
     }
   }
