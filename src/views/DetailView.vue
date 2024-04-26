@@ -100,7 +100,7 @@ function windowSize() {
         <div class="middle ">
           <div class="middleBox contentBox">
             <div class="footer">
-              中间上
+              <detailTop />
             </div>
           </div>
           <div class="middleBox contentBox">

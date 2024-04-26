@@ -10,6 +10,7 @@ declare module 'vue' {
     DetailBottom: typeof import('./src/components/detailBottom/index.vue')['default']
     DetailLeft: typeof import('./src/components/detailLeft/index.vue')['default']
     DetailRight: typeof import('./src/components/detailRight/index.vue')['default']
+    DetailTop: typeof import('./src/components/detailTop/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     ElForm: typeof import('element-plus/es')['ElForm']
