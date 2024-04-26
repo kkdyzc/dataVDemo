@@ -76,10 +76,6 @@ function clickHandler(e: any) {
 .app {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  background: url("@/assets/detailLeftBg.png") no-repeat;
-  background-size: 100% 100%;
 
   :deep(.header) {
     align-items: center;
