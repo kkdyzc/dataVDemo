@@ -91,7 +91,7 @@ watch(() => userStore.contentList, () => {
           .shine {
             height: 50%;
             top: 50%;
-            margin-top: -2px;
+            margin-top: -5px;
           }
         }
       }
