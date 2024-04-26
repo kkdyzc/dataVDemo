@@ -105,10 +105,10 @@ function windowSize() {
           </div>
           <div class="middleBox contentBox">
             <div class="header">
-              <img src="@/assets/contentBon.png" alt="">
+              <img src="@/assets/detailMiddleBomBg.png" alt="">
             </div>
             <div class="footer">
-              中间下
+              <detailBottom />
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ function windowSize() {
     }
     .content{
       width: 100%;
-      height: 93%;
+      height: 100%;
       padding:24px;
       display: flex;
       .left,.right{
@@ -205,12 +205,13 @@ function windowSize() {
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         .middleBox{
           margin: 0 16px;
         }
         .middleBox:nth-child(1){
-          height: 80%;
-          margin-bottom: -20px;
+          height: 60%;
+          margin-bottom: 24px;
           .footer{
             height: 100%;
           }
@@ -218,10 +219,10 @@ function windowSize() {
         .middleBox:nth-child(2){
           flex: 1;
           box-sizing: border-box;
-          background: url("@/assets/middleBomBg.png") no-repeat;
+          background: url("@/assets/detailBomBg.png") no-repeat;
           background-size:100% 100%;
           .header{
-            height: 22%;
+            height: 48px;
             img{
               width: 100%;
               height: 100%;
@@ -235,7 +236,6 @@ function windowSize() {
       .right{
         width: 25%;
         height: 100%;
-
       }
     }
   }
