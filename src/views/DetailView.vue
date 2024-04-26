@@ -4,9 +4,6 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import axios from 'axios'
 import { read, utils } from 'xlsx'
 import { useuserStore } from '@/stores/user'
-import LeftTop from '@/components/leftTop/index.vue'
-import LeftBottom from '@/components/leftBottom/index.vue'
-import MiddleTop from '@/components/middleTop/index.vue'
 import useDraw from '@/utils/useDraw'
 
 const userStore = useuserStore()
@@ -28,7 +25,6 @@ onMounted(() => {
 
   // 初始更新时间
   updateDateTime()
-
   // 每秒更新一次时间
   setInterval(updateDateTime, 1000)
   calcRate()
@@ -36,7 +32,7 @@ onMounted(() => {
   window.addEventListener('resize', windowSize)
 
   axios.get('/数据语料平台.xlsx', {
-  // axios.get(url.value, {
+    // axios.get(url.value, {
     responseType: 'blob',
   }).then((response) => {
     const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
@@ -79,10 +75,6 @@ onBeforeUnmount(() => {
 function windowSize() {
   time.value = Date.now()
 }
-
-function goDetail() {
-  router.push({ name: 'detail' })
-}
 </script>
 
 <template>
@@ -98,25 +90,17 @@ function goDetail() {
         <div class="left ">
           <div class="leftBox contentBox">
             <div class="header">
-              <img src="@/assets/leftTop.png" alt="">
+              <img src="@/assets/detailLeftHeader.png" alt="">
             </div>
             <div class="footer">
-              <LeftTop />
-            </div>
-          </div>
-          <div class="leftBox contentBox">
-            <div class="header">
-              <img src="@/assets/leftBon.png" alt="">
-            </div>
-            <div class="footer">
-              <LeftBottom />
+              <detailLeft />
             </div>
           </div>
         </div>
         <div class="middle ">
           <div class="middleBox contentBox">
-            <div class="footer" style="cursor: pointer" @click="goDetail">
-              <MiddleTop />
+            <div class="footer">
+              中间上
             </div>
           </div>
           <div class="middleBox contentBox">
@@ -124,26 +108,17 @@ function goDetail() {
               <img src="@/assets/contentBon.png" alt="">
             </div>
             <div class="footer">
-              <middleBom />
+              中间下
             </div>
           </div>
         </div>
         <div class="right">
           <div class="rightBox contentBox">
             <div class="header">
-              <img src="@/assets/rightTop.png" alt="">
+              <img src="@/assets/rightDetailHeader.png" alt="">
             </div>
             <div class="footer">
-              <img class="rightTopYuan" src="@/assets/rightTopYuan.png" alt="">
-              <rightTop />
-            </div>
-          </div>
-          <div class="rightBox contentBox">
-            <div class="header">
-              <img src="@/assets/rightBon.png" alt="">
-            </div>
-            <div class="footer">
-              <rightBom />
+              <detailRight />
             </div>
           </div>
         </div>
@@ -210,16 +185,6 @@ function goDetail() {
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          &:nth-child(1){
-            height: 45%;
-            min-height: 45%;
-          }
-          &:nth-child(2){
-            overflow: hidden;
-            height: 54%;
-
-          }
           .header{
             height: 48px;
             img{
@@ -229,22 +194,8 @@ function goDetail() {
           }
           .footer{
             padding-top: 20px;
-            height: 90%;
+            height: 100%;
             position: relative;
-            .rightTopYuan{
-              position: absolute;
-              top: 12%;
-              left: 25%;
-              animation: rotate 5s linear infinite;
-            }
-            @keyframes rotate {
-              from {
-                transform: rotate(0deg);
-              }
-              to {
-                transform: rotate(360deg);
-              }
-            }
           }
         }
 
