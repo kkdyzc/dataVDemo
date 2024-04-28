@@ -22,7 +22,7 @@ watch(() => userStore.content2List, () => {
     config.data = []
     userStore.content2List[2].forEach((item: any) => {
       if (item['任务名称']?.length > 0)
-        config.data.push([item['任务名称'], item?.url ? `<span class="urlColor">${item.url}</span>` : '<span class="urlColor">https://www.figma.com/file/iGdXZ7koVUUR7LFivN...</span>', item?.ip || '172.16.0.250-256', item?.type || '文件夹'])
+        config.data.push([item['任务名称'], item?.url ? `<span class="urlColor">${item.url}</span>` : `<span class="urlColor">https://www.effyic.com/data/工业/${item['任务名称']}</span>`, item?.ip || `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, item?.type || '文件夹'])
     })
   }
 }, { immediate: true, deep: true })
