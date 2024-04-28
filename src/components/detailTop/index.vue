@@ -70,14 +70,26 @@ async function submitForm(formEl: FormInstance | undefined) {
         '处理状态': '处理中',
         '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
       })
-      userStore.content2List[2].unshift({
-        '任务名称': ruleForm.value.name,
-        '处理状态': '处理中',
-        '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
-        'url': ruleForm.value.url,
-        'ip': ruleForm.value.ip,
-        'type': ruleForm.value.type,
-      })
+      if (createType.value === 'collect') {
+        userStore.content2List[2].unshift({
+          '任务名称': ruleForm.value.name,
+          '处理状态': '处理中',
+          '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
+          'url': ruleForm.value.url,
+          'ip': ruleForm.value.ip,
+          'type': '',
+        })
+      }
+      else {
+        userStore.content2List[2].unshift({
+          '任务名称': ruleForm.value.name,
+          '处理状态': '处理中',
+          '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
+          'url': '<span></span>',
+          'ip': ruleForm.value.ip,
+          'type': ruleForm.value.type,
+        })
+      }
       popupVisibility.value = false
       popup2Visibility.value = true
     }
