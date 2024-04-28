@@ -66,12 +66,12 @@ async function submitForm(formEl: FormInstance | undefined) {
   await formEl.validate((valid) => {
     if (valid) {
       userStore.content2List[0].unshift({
-        '任务名称': ruleForm.value.num,
+        '任务名称': ruleForm.value.name,
         '处理状态': '处理中',
         '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
       })
       userStore.content2List[2].unshift({
-        '任务名称': ruleForm.value.num,
+        '任务名称': ruleForm.value.name,
         '处理状态': '处理中',
         '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
         'url': ruleForm.value.url,
@@ -169,8 +169,7 @@ function showPopup(str: string) {
         </el-form-item>
         <el-form-item label="服务器" prop="ip">
           <el-select v-model="ruleForm.ip" placeholder="">
-            <el-option label="172.16.0.250-256" value="172.16.0.250-256" />
-            <!--            <el-option label="Zone two" value="beijing" /> -->
+            <el-option v-for="(item, index) of 7" :key="item" :label="`172.16.0.25${index}`" :value="`172.16.0.25${index}`" />
           </el-select>
         </el-form-item>
         <el-form-item label="访问失败重试" prop="num">
