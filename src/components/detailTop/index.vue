@@ -180,7 +180,7 @@ function showPopup(str: string) {
           <!--          </el-checkbox-group> -->
         </el-form-item>
         <el-form-item label="服务器" prop="ip">
-          <el-select v-model="ruleForm.ip" placeholder="">
+          <el-select v-model="ruleForm.ip" placeholder=" ">
             <el-option v-for="(item, index) of 7" :key="item" :label="`172.16.0.25${index}`" :value="`172.16.0.25${index}`" />
           </el-select>
         </el-form-item>
