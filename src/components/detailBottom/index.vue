@@ -21,8 +21,9 @@ watch(() => userStore.content2List, () => {
   if (userStore.content2List.length > 0) {
     config.data = []
     userStore.content2List[2].forEach((item: any) => {
+      // https://www.effyic.com
       if (item['任务名称']?.length > 0)
-        config.data.push([item['任务名称'], item?.url ? `<span class="urlColor">${item.url}</span>` : `<span class="urlColor">https://www.effyic.com/data/工业/${item['任务名称']}</span>`, item?.ip || `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, item?.type || '文件夹'])
+        config.data.push([item['任务名称'], item?.url ? `<span class="urlColor">${item.url}</span>` : `<span class="urlColor">/data/工业/${item['任务名称']}</span>`, item?.ip || `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, item?.type || '文件夹'])
     })
   }
 }, { immediate: true, deep: true })

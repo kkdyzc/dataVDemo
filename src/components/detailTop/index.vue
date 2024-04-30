@@ -9,6 +9,7 @@ interface RuleForm {
   url: string
   ip: string
   num: string
+  routeName: string
 }
 
 const userStore = useuserStore()
@@ -23,6 +24,7 @@ const ruleForm = ref<RuleForm>({
   url: '',
   ip: '',
   num: '',
+  routeName: '',
 })
 
 const rules = reactive<FormRules>({
@@ -58,6 +60,13 @@ const rules = reactive<FormRules>({
       trigger: 'change',
     },
   ],
+  routeName: [
+    {
+      required: true,
+      message: '请选择文件夹输出路径',
+      trigger: 'change',
+    },
+  ],
 })
 
 async function submitForm(formEl: FormInstance | undefined) {
@@ -85,7 +94,7 @@ async function submitForm(formEl: FormInstance | undefined) {
           '任务名称': ruleForm.value.name,
           '处理状态': '处理中',
           '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
-          'url': '<span></span>',
+          'url': ruleForm.value.routeName,
           'ip': ruleForm.value.ip,
           'type': ruleForm.value.type,
         })
@@ -105,6 +114,7 @@ function closeForm(formEl: FormInstance | undefined) {
     url: '',
     ip: '',
     num: '',
+    routeName: '',
   }
   createType.value = ''
   formEl.resetFields()
@@ -186,6 +196,9 @@ function showPopup(str: string) {
         </el-form-item>
         <el-form-item label="访问失败重试" prop="num">
           <el-input v-model="ruleForm.num" min="0" type="number" />
+        </el-form-item>
+        <el-form-item v-if="createType === 'generate'" label="输出文件夹路径" prop="routeName">
+          <el-input v-model="ruleForm.routeName" />
         </el-form-item>
         <el-form-item class="footerBtn">
           <el-button @click="submitForm(ruleFormRef)">

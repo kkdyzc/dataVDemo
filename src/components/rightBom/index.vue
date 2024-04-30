@@ -20,6 +20,10 @@ onMounted(() => {
 watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[6] && !flg.value) {
+      title.value = []
+      handle.value = []
+      data1.value = []
+      data2.value = []
       flg.value = true
       userStore.contentList[6].forEach((item: any) => {
         if (item['年份']) {
