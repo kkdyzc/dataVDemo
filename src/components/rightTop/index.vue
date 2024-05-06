@@ -17,6 +17,7 @@ watchEffect(() => {
   if (userStore.contentList) {
     if (userStore.contentList[5] && !flg.value) {
       flg.value = true
+      dataContent.value = []
       userStore.contentList[5].forEach((item: any) => {
         if (item['语料用途名称']) {
           dataContent.value.push({

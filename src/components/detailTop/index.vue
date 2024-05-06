@@ -143,6 +143,7 @@ function showPopup(str: string) {
     v-model="popupVisibility"
     title=""
     class="popup2Visibility"
+    :class="createType === 'generate' ? 'generate' : ''"
     append-to-body
     @close="closeForm(ruleFormRef)"
   >
@@ -236,6 +237,15 @@ function showPopup(str: string) {
   margin: 0 !important;
   background: transparent url("@/assets/popup2Bg.png") no-repeat;
   background-size: 100% 100%;
+
+  //&.generate {
+  //  .el-dialog__body {
+  //    padding-top: 30px;
+  //    .footerBtn {
+  //      padding-top: 0 !important;
+  //    }
+  //  }
+  //}
   .el-dialog__header {
     padding: 0;
     .el-dialog__headerbtn {
@@ -253,7 +263,7 @@ function showPopup(str: string) {
     }
   }
   .el-dialog__body {
-    padding: 80px 50px 20px;
+    padding: 30px 50px 20px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -331,7 +341,7 @@ function showPopup(str: string) {
       }
 
       .footerBtn {
-        padding-top: 30px;
+        //padding-top: 30px;
         .el-form-item__content {
           margin: 0 !important;
           display: flex;

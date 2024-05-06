@@ -84,9 +84,12 @@ function toHome() {
   <div class="main">
     <div id="dv-full-screen-container" ref="appRef">
       <div class="titleBox">
+        <div class="logoBox">
+          <img src="@/assets/logo.png" alt="" class="logo">
+        </div>
         <div class="headerTime">
-          <svg-icon name="timeIcon" width="24px" height="24px" />
-          <span style="font-size: 22px;margin:0 10px;">实时数据</span>{{ currentDateTime }}
+          <svg-icon name="timeIcon" class="icon" width="24px" height="24px" />
+          <span style="font-size: 18px;margin:0 10px;font-weight: 600">实时数据</span>{{ currentDateTime }}
         </div>
         <div class="back" @click="toHome" />
       </div>
@@ -161,15 +164,30 @@ function toHome() {
       background: url('@/assets/headerBg.png') no-repeat;
       background-size: 100%;
       position: relative;
+      .logoBox {
+        height: 25px;
+        min-height: 25px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 48px;
+        left: 48px;
+        .logo {
+          height: 100%;
+        }
+      }
       .headerTime{
         font-family: 'dzFont';
         position: absolute;
         display: flex;
         align-items: center;
         top: 48px;
-        left: 43px;
+        right: 48px;
         color:#00F0FF;
-        font-size: 18px;
+        font-size: 16px;
+        .icon {
+          height: 24px;
+        }
       }
       .back{
         height: 100%;
