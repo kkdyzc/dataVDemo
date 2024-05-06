@@ -165,13 +165,13 @@ function toHome() {
       background-size: 100%;
       position: relative;
       .logoBox {
-        height: 25px;
-        min-height: 25px;
+        height: 38px;
+        min-height: 38px;
         position: absolute;
         display: flex;
         align-items: center;
-        top: 48px;
-        left: 48px;
+        top: 40px;
+        left: 24px;
         .logo {
           height: 100%;
         }
@@ -182,7 +182,7 @@ function toHome() {
         display: flex;
         align-items: center;
         top: 48px;
-        right: 48px;
+        right: 24px;
         color:#00F0FF;
         font-size: 16px;
         .icon {
