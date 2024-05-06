@@ -5,11 +5,13 @@ import { useuserStore } from '@/stores/user'
 
 interface RuleForm {
   name: string
-  type: string
+  type: []
   url: string
   ip: string
   num: string
   routeName: string
+  inputName: string
+  sjType: []
 }
 
 const userStore = useuserStore()
@@ -20,11 +22,13 @@ const createType = ref('')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = ref<RuleForm>({
   name: '',
-  type: '平行语料生成任务',
+  type: [],
   url: '',
   ip: '',
   num: '',
   routeName: '',
+  inputName: '',
+  sjType: [],
 })
 
 const rules = reactive<FormRules>({
@@ -67,6 +71,13 @@ const rules = reactive<FormRules>({
       trigger: 'change',
     },
   ],
+  inputName: [
+    {
+      required: true,
+      message: '请选择文件夹输入路径',
+      trigger: 'change',
+    },
+  ],
 })
 
 async function submitForm(formEl: FormInstance | undefined) {
@@ -86,7 +97,7 @@ async function submitForm(formEl: FormInstance | undefined) {
           '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
           'url': ruleForm.value.url,
           'ip': ruleForm.value.ip,
-          'type': '',
+          'type': ruleForm.value.routeName,
         })
       }
       else {
@@ -94,9 +105,9 @@ async function submitForm(formEl: FormInstance | undefined) {
           '任务名称': ruleForm.value.name,
           '处理状态': '处理中',
           '执行时长（小时）': Math.floor(Math.random() * (128 - 24 + 1)) + 24,
-          'url': ruleForm.value.routeName,
+          'url': ruleForm.value.inputName,
           'ip': ruleForm.value.ip,
-          'type': ruleForm.value.type,
+          'type': ruleForm.value.routeName,
         })
       }
       popupVisibility.value = false
@@ -110,11 +121,13 @@ function closeForm(formEl: FormInstance | undefined) {
     return
   ruleForm.value = {
     name: '',
-    type: '平行语料生成任务',
+    type: [],
     url: '',
     ip: '',
     num: '',
     routeName: '',
+    inputName: '',
+    sjType: [],
   }
   createType.value = ''
   formEl.resetFields()
@@ -166,18 +179,12 @@ function showPopup(str: string) {
         <el-form-item v-if="createType === 'collect'" label="URL" prop="url">
           <el-input v-model="ruleForm.url" />
         </el-form-item>
-        <el-form-item v-if="createType === 'generate'" label="语料文件夹" prop="type">
-          <el-radio-group v-model="ruleForm.type">
-            <el-radio label="平行语料生成任务">
-              平行语料生成任务
-            </el-radio>
-            <el-radio label="指令对齐语料生成任务">
-              指令对齐语料生成任务
-            </el-radio>
-            <el-radio label="知识内容生成任务">
-              知识内容生成任务
-            </el-radio>
-          </el-radio-group>
+        <el-form-item v-if="createType === 'collect'" prop="type" style="flex-direction:unset;">
+          <el-checkbox-group v-model="ruleForm.sjType">
+            <el-checkbox label="子级内容迭代收集">
+              子级内容迭代收集
+            </el-checkbox>
+          </el-checkbox-group>
           <!--          <el-checkbox-group v-model="ruleForm.type"> -->
           <!--            <el-checkbox value="平行语料生成任务" name="type"> -->
           <!--              平行语料生成任务 -->
@@ -189,6 +196,33 @@ function showPopup(str: string) {
           <!--              知识内容生成任务 -->
           <!--            </el-checkbox> -->
           <!--          </el-checkbox-group> -->
+        </el-form-item>
+        <el-form-item v-if="createType === 'generate'" label="语料文件任务" prop="type">
+          <el-checkbox-group v-model="ruleForm.type">
+            <el-checkbox label="平行语料生成任务">
+              平行语料生成任务
+            </el-checkbox>
+            <el-checkbox label="指令对齐语料生成任务">
+              指令对齐语料生成任务
+            </el-checkbox>
+            <el-checkbox label="知识内容生成任务">
+              知识内容生成任务
+            </el-checkbox>
+          </el-checkbox-group>
+          <!--          <el-checkbox-group v-model="ruleForm.type"> -->
+          <!--            <el-checkbox value="平行语料生成任务" name="type"> -->
+          <!--              平行语料生成任务 -->
+          <!--            </el-checkbox> -->
+          <!--            <el-checkbox value="指令对齐语料生成任务" name="type"> -->
+          <!--              指令对齐语料生成任务 -->
+          <!--            </el-checkbox> -->
+          <!--            <el-checkbox value="知识内容生成任务" name="type"> -->
+          <!--              知识内容生成任务 -->
+          <!--            </el-checkbox> -->
+          <!--          </el-checkbox-group> -->
+        </el-form-item>
+        <el-form-item v-if="createType === 'generate'" label="输入文件夹路径" prop="inputName">
+          <el-input v-model="ruleForm.inputName" />
         </el-form-item>
         <el-form-item label="服务器" prop="ip">
           <el-select v-model="ruleForm.ip" placeholder=" ">
@@ -229,7 +263,7 @@ function showPopup(str: string) {
 <style lang="scss">
 .popup2Visibility {
   width: 680px;
-  height: 550px;
+  height: 650px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -316,6 +350,31 @@ function showPopup(str: string) {
                 background-size: 100% 100%;
               }
               .el-radio__inner {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .el-checkbox-group {
+          gap: 12px;
+          .el-checkbox {
+            margin: 0;
+            .el-checkbox__label {
+              font-size: 14px;
+              font-weight: 400;
+              color: #FFFFFFD9;
+            }
+            .el-checkbox__input {
+              width: 16px;
+              height: 16px;
+              background: url("@/assets/check.png") no-repeat;
+              background-size: 100% 100%;
+              &.is-checked {
+                background: url("@/assets/checked.png") no-repeat;
+                background-size: 100% 100%;
+              }
+              .el-checkbox__inner {
                 display: none;
               }
             }
