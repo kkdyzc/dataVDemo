@@ -39,6 +39,7 @@ watch(() => userStore.contentList, () => {
         value: item['提供语料数据量T'],
       }
     })
+    console.log(config.value)
   }
 }, { immediate: true, deep: true })
 </script>
