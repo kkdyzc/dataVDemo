@@ -197,7 +197,7 @@ function showPopup(str: string) {
         <el-form-item label="访问失败重试" prop="num">
           <el-input v-model="ruleForm.num" min="0" type="number" />
         </el-form-item>
-        <el-form-item v-if="createType === 'generate'" label="输出文件夹路径" prop="routeName">
+        <el-form-item label="输出文件夹路径" prop="routeName">
           <el-input v-model="ruleForm.routeName" />
         </el-form-item>
         <el-form-item class="footerBtn">
