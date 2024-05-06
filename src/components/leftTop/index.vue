@@ -35,11 +35,10 @@ watch(() => userStore.contentList, () => {
     config.value.data = userStore.contentList[1].map((item: any) => {
       zNum.value += item['提供语料数据量T']
       return {
-        name: `<p class="title">${item['供应商名称']}<span>${item['提供语料数据量T']}</span></p>`,
+        name: `<p class="title">${item['供应商名称']}<span>${item['提供语料数据量T']}T</span></p>`,
         value: item['提供语料数据量T'],
       }
     })
-    console.log(config.value)
   }
 }, { immediate: true, deep: true })
 </script>
