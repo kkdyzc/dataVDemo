@@ -197,7 +197,7 @@ function showPopup(str: string) {
           <!--            </el-checkbox> -->
           <!--          </el-checkbox-group> -->
         </el-form-item>
-        <el-form-item v-if="createType === 'generate'" label="语料文件任务" prop="type">
+        <el-form-item v-if="createType === 'generate'" label="语料生成任务" prop="type">
           <el-checkbox-group v-model="ruleForm.type">
             <el-checkbox label="平行语料生成任务">
               平行语料生成任务
