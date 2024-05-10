@@ -79,45 +79,46 @@ function detailDialog(row: any) {
     detailHeaderName.value = '任务详情'
     if (row.row[0] === '塑料材料组分数据知识提取') {
       pdfUrl.value = '/硅烷偶联剂改性对气相SiO...电缆绝缘复合材料性能的影响_王含.pdf'
+      // Math.floor(Math.random() * (3 + 1))
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], a[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[3], a[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '铝合金材料性状说明数据知识提取') {
       pdfUrl.value = '/B-PDA-G_PDMS导热绝缘材料的制备及应用.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], b[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[3], b[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '硅酸盐矿物开采工艺数据知识提取') {
       pdfUrl.value = '/改性硅溶胶封孔剂对多孔Al_(2)O_(3)陶瓷绝缘性能和微观结构的影响.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], c[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[3], c[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '国家岩层构造分布数据平行语料制备') {
       pdfUrl.value = '/基于超疏水滤膜的绝缘油多级过滤除水新工艺.pdf'
 
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], d[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[1], d[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '半导体材料说明平行语料制备') {
       pdfUrl.value = '/超导电缆用低介损复合绝缘材料性能研究.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], e[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[1], e[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '合成纤维及产业平行语料制备') {
       pdfUrl.value = '/硅烷偶联剂改性对气相SiO...电缆绝缘复合材料性能的影响_王含.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], f[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[1], f[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
     if (row.row[0] === '结晶高分子/半结晶高分子材料数据知识提取') {
       pdfUrl.value = '/绝缘二维纳米材料的制备及其...有机涂层防腐性能的研究进展_肖敏迪.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], g[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[3], g[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
 
     if (row.row[0] === '绝缘材料的理论知识提取') {
       pdfUrl.value = '/纳米改性植物绝缘油电气特性的研究进展_苏梓铭.pdf'
       for (let i = 0; i <= 2; i++)
-        tabConfig.data.push([row.row[0], dataArr[Math.floor(Math.random() * (3 + 1))], h[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
+        tabConfig.data.push([row.row[0], dataArr[3], h[i], `172.16.0.25${Math.floor(Math.random() * (6 + 1))}`, '<span class="detail">查看详情</span>'])
     }
   }
 }

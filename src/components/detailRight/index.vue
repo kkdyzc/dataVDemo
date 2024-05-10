@@ -21,7 +21,7 @@ watch(() => userStore.content2List, () => {
     config.data = []
     userStore.content2List[1].forEach((item: any) => {
       if (item['任务名称']?.length > 0)
-        config.data.push([item['任务名称'], `${item['执行时长（小时）'] || '20'}h`, switchFn(item['处理状态']), '<span class="detail">查看详情</span>'])
+        config.data.push([item['任务名称'], `${item['执行时长（小时）'] || '20'}h`, switchFn(item['处理状态']), '<span class="detail">屏蔽显示</span>'])
     })
   }
 }, { immediate: true, deep: true })
